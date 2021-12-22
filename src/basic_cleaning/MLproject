@@ -5,18 +5,34 @@ entry_points:
   main:
     parameters:
 
-      parameter1:
-        description: ## ADD DESCRIPTION
+      tmp_dir:
+        description: temporary directory for artifacts storage
         type: string
 
-      parameter2:
-        description: ## ADD DESCRIPTION
+      input_artifact:
+        description: input artifact (*.csv file) - to be cleaned
         type: string
 
-      parameter3:
-        description: ## ADD DESCRIPTION
+      output_artifact:
+        description: output artifact (*csv file) - cleaned
         type: string
 
+      output_type:
+        description: artifact type
+        type: string
+      
+      output_description:
+        description: artifact description
+        type: string
+        
+      min_price:
+        description: the minimum price - outlier left (min.) boundary 
+        type: string
+      
+      max_price:
+        description: the maximum price - outlier right (max.) boundary 
+        type: string
+      
 
     command: >-
-        python run.py  --parameter1 {parameter1}  --parameter2 {parameter2}  --parameter3 {parameter3} 
+        python run.py  --tmp_dir {tmp_dir} --input_artifact {input_artifact}  --output_artifact {output_artifact}  --output_type {output_type} --output_description {output_description} --min_price {min_price} --max_price {max_price}
