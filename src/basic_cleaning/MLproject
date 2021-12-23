@@ -26,11 +26,11 @@ entry_points:
         type: string
         
       min_price:
-        description: the minimum price - outlier left (min.) boundary 
+        description: Minimum accepted price
         type: string
       
       max_price:
-        description: the maximum price - outlier right (max.) boundary 
+        description: Maximum accepted price
         type: string
       
 
