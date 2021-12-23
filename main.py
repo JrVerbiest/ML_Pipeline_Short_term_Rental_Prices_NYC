@@ -55,7 +55,8 @@ def go(config: DictConfig):
                 os.path.join(
                     root,
                     "src",
-                    "basic_cleaning"),
+                    "basic_cleaning"
+                    ),
                 "main",
                 parameters={
                     "tmp_dir": tmp_dir,
@@ -64,14 +65,26 @@ def go(config: DictConfig):
                     "output_type": "clean_sample",
                     "output_description": "Data with outliers and null values removed",
                     "min_price": config['etl']['min_price'],
-                    "max_price": config['etl']['max_price']},
+                    "max_price": config['etl']['max_price']
+                    },
             )
 
         if "data_check" in active_steps:
-            ##################
-            # Implement here #
-            ##################
-            pass
+            _ =mlflow.run(
+                os.path.join(
+                    root,
+                    "src",
+                    "data_check"
+                    ),
+                "main",
+                parameters={
+                    "csv": "clean_sample.csv:latest",
+                    "ref": "clean_sample.csv:reference",
+                    "kl_threshold": config['data_check']['kl_threshold'],
+                    "min_price": config['etl']['min_price'],
+                    "max_price": config['etl']['max_price']
+                },
+            )
 
         if "data_split" in active_steps:
             ##################
