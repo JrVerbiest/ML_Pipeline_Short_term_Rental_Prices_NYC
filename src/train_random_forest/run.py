@@ -55,7 +55,6 @@ def go(args):
     # Use run.use_artifact(...).file() to get the train and validation artifact (args.trainval_artifact)
     # and save the returned path in train_local_pat
     trainval_local_path = run.use_artifact(args.trainval_artifact).file()
-    logger.info("download trainval artifact: %s", args.trainval_artifact)
     ######################################
 
     X = pd.read_csv(trainval_local_path)
@@ -103,7 +102,6 @@ def go(args):
         serialization_format=mlflow.sklearn.SERIALIZATION_FORMAT_CLOUDPICKLE,
         input_example=X_val.iloc[:5],
     )
-
     ######################################
 
     ######################################
@@ -115,10 +113,11 @@ def go(args):
     artifact = wandb.Artifact(
         args.output_artifact,
         type="model_export",
-        description="Random Forest Model",
+        description="Trained Random Forest Model",
         metadata=rf_config
     )
-
+    artifact.add_dir("random_forest_dir")
+    
     run.log_artifact(artifact)
 
     artifact.wait()
@@ -244,7 +243,8 @@ def get_inference_pipeline(rf_config, max_tfidf_features):
             ("random_forest", random_Forest),
         ]
     )
-
+    ######################################
+    
     return sk_pipe, processed_features
 
 
