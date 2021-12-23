@@ -42,6 +42,7 @@ def go(args):
 
     mae = mean_absolute_error(y_test, y_pred)
 
+    logger.info(f"model: {args.mlflow_model}")
     logger.info(f"Score: {r_squared}")
     logger.info(f"MAE: {mae}")
 
