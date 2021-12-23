@@ -11,13 +11,3 @@ mlflow run . \
 ```
 
 
-
-**My Best Model**
-
-![best_model](/home/joeri/Documents/GitHub/nd0821-c2-build-model-workflow-starter/images/best_model.png)
-
-| Metric |           |
-| ------ | --------- |
-| r2     | 0.549351  |
-| mea    | 33.416015 |
-
