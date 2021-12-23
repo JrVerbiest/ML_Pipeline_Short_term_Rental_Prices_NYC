@@ -8,9 +8,8 @@ to be retrained with the same cadence, necessitating an end-to-end pipeline that
 
 In this project you will build such a pipeline.
 
-GitHub
-- release 1.0.1: https://github.com/JrVerbiest/nd0821-c2-build-model-workflow-starter.git
-- https://wandb.ai/jrverbiest/nyc_airbnb
+- GitHub release 1.0.1: https://github.com/JrVerbiest/nd0821-c2-build-model-workflow-starter.git
+- wandb project: https://wandb.ai/jrverbiest/nyc_airbnb
 
 ---
 
